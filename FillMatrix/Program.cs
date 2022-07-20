@@ -5,22 +5,20 @@ m = 3, n = 4.
 1 -3,3 8 -9,9
 8 7,8 -7,1 9
 */
-
-double[,] InitMatrix(int k, int l)
+double[,] InitMatrix(int a, int b)
 {
-    double[,] matrix1 = new double[k, l];
+    double[,] matrix1 = new double[a, b];
     Random randomizer = new Random();
- 
-        for (int i = 0; i < k; i++)// заполнение строк
+        for (int i = 0; i < a; i++)
         {
-            for (int j = 0; j < l; j++)// заполнение столбцов 
+            for (int j = 0; j < b; j++)
             {
-                matrix1[i, j] = randomizer.NextDouble()*(10 + 9.99) - 9.99;
+                double c = randomizer.Next(-99, 100);
+                matrix1[i, j] = c / 10;
             }
         }
-    return matrix1;
+return matrix1;
 }
- 
 void PrintMatrix(double[,] matrix2)
 {
     for (int i = 0; i < matrix2.GetLength(0); i++)
@@ -29,20 +27,15 @@ void PrintMatrix(double[,] matrix2)
         {
             Console.Write($"{matrix2[i, j]} ");
         }
-            Console.WriteLine();
+    Console.WriteLine();
     }
 }
- 
 Console.WriteLine("Введите число m:");
 int m = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите число n:");
 int n = int.Parse(Console.ReadLine());
- 
 double[,] matrix = InitMatrix(m, n);
- 
 Console.WriteLine($"Матрица размером {m}x{n}:");
 Console.WriteLine();
-PrintMatrix(matrix);
-
-
-
+PrintMatrix(matrix);       
+       
